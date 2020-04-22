@@ -40,7 +40,7 @@ public class User implements Serializable {
 	@Column
 	private String password;
 	@Transient
-	private String confirmedPassword;
+	private String confirmPassword;
 	
 	@ManyToMany(fetch=FetchType.LAZY)
 	@JoinTable(name="user_roles",
@@ -97,12 +97,12 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
-	public String getConfirmedPassword() {
-		return confirmedPassword;
+	public String getconfirmPassword() {
+		return confirmPassword;
 	}
 
-	public void setConfirmedPassword(String confirmedPassword) {
-		this.confirmedPassword = confirmedPassword;
+	public void setconfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
 	}
 
 	public Set<Role> getRoles() {
@@ -116,7 +116,7 @@ public class User implements Serializable {
 	@Override
 	public String toString() {
 		return "User [Id=" + Id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", username=" + username + ", password=" + password + ", confirmedPassword=" + confirmedPassword
+				+ ", username=" + username + ", password=" + password + ", confirmedPassword=" + confirmPassword
 				+ ", roles=" + roles + "]";
 	}
 
@@ -125,7 +125,7 @@ public class User implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((Id == null) ? 0 : Id.hashCode());
-		result = prime * result + ((confirmedPassword == null) ? 0 : confirmedPassword.hashCode());
+		result = prime * result + ((confirmPassword == null) ? 0 : confirmPassword.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
@@ -149,10 +149,10 @@ public class User implements Serializable {
 				return false;
 		} else if (!Id.equals(other.Id))
 			return false;
-		if (confirmedPassword == null) {
-			if (other.confirmedPassword != null)
+		if (confirmPassword == null) {
+			if (other.confirmPassword != null)
 				return false;
-		} else if (!confirmedPassword.equals(other.confirmedPassword))
+		} else if (!confirmPassword.equals(other.confirmPassword))
 			return false;
 		if (email == null) {
 			if (other.email != null)
